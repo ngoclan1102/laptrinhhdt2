@@ -26,25 +26,28 @@
   }
   class SwitchButton {
       status;
-      lamp;
       constructor(status) {
           this.status = status;
       }
-      connectToLamp() {
-          return this.lamp;
-      }
-      switchOff(lamp) {
-          this.status = true;
-          lamp.turnOff();
-      }
-      switchOn(lamp) {
+      // connectToLamp(ElectricLamp) {
+      //     return this.lamp;
+      // }
+      switchOff(ElectricLamp) {
           this.status = false;
-          lamp.turnOn();
+          ElectricLamp.turnOff();
+          console.log('Not Lighting')
+      }
+      switchOn(ElectricLamp) {
+          this.status = true;
+          ElectricLamp.turnOn();
+          console.log('lighting')
       }
   }
   let myLamp = new ElectricLamp(false)
   let mySwitchButton = new SwitchButton(false)
-
+  myLamp.turnOn()
+  mySwitchButton.switchOn()
+  mySwitchButton.switchOff()
 </script>
 </body>
 </html>
