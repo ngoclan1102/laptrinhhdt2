@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Battery {
+        energy;
+        constructor(energy) {
+            this.energy=energy;
+        }
+        getEnergy() {
+            return this.energy;
+        }
+        // setEnergy(energy) {
+        //     this.energy = energy;
+        // }
+        decreaseEnergy()  {
+            if (this.energy > 0) {
+                this.energy--;
+            }
+        }
+    }
+    class FlashLamp {
+        status;
+        constructor(status) {
+            this.status = status;
+        }
+        // setBattery(battery) {
+        //     this.battery = battery;
+        // }
+        // getBatteryInfo() {
+        //     return this.battery.getEnergy();
+        // }
+        turnOn() {
+            this.status = true;
+        }
+        turnOff() {
+            this.status = false;
+        }
+        light() {
+            if (this.status) {
+                console.log("Lighting");
+            } else {
+                console.log("Not lighting" );
+            }
+        }
+    }
+    let myBattery = new Battery(10);
+    let myFlashLamp = new FlashLamp(false);
+    myFlashLamp.turnOn()
+   myFlashLamp.light()
+    myBattery.decreaseEnergy()
+    console.log(myBattery.energy)
+
+    myFlashLamp.turnOff()
+    myFlashLamp.light()
+
+    myFlashLamp.turnOn()
+    myFlashLamp.light()
+    myBattery.decreaseEnergy()
+    console.log(myBattery.energy)
+</script>
+</body>
+</html>
